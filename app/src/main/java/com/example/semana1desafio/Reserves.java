@@ -114,13 +114,19 @@ public class Reserves extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.pref_key), Context.MODE_PRIVATE);
         sharedPreferences = getSharedPreferences(getString(R.string.pref_key), Context.MODE_PRIVATE);
         String result = sharedPreferences.getString("desks", "");
+        if(result.isEmpty()){
+           return;
+        }
+
         result = result.substring(1);
         String [] stringTokens;
         stringTokens = result.split(",");
         int [] intArr = Stream.of(stringTokens)
                 .mapToInt(strToken -> Integer.parseInt(strToken))
                 .toArray();
-
+        if(intArr.length == 0){
+            return;
+        }
         for (int i: intArr) {
             int layoutResID = getResources().getIdentifier("lreserve"+i , "id", getPackageName());
             LinearLayout layout = findViewById(layoutResID);

@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         password =passwordEditText.getText().toString();
         String loginResult = "";
         boolean logged = false;
-        final List<String> users = Arrays.asList("a","Administrador", "Adm", "Administrator", "Root");
-        final List<String> passwords = Arrays.asList("a", "Administrador","Adm123", "Que3B1eng4ElT0r0", "pr0m1uscu0");
+        final List<String> users = Arrays.asList("Administrador", "Adm", "Administrator", "Root");
+        final List<String> passwords = Arrays.asList("Administrador","Adm123", "Que3B1eng4ElT0r0", "pr0m1uscu0");
 
         if(user.length() == 0){
             Toast.makeText( getBaseContext(),  "Por favor preencha seu Usuario" ,
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         for (int i = 0; i < 3; i++) {
-            if(users.get(0).equals(user)){
+            if(users.get(i).equals(user)){
 
                 if(password.equals(passwords.get(i))){
                     System.out.println("foi");
